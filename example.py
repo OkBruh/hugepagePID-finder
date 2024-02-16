@@ -16,6 +16,7 @@ device = "qemu://hugepage-pid=" + str(hugepagePID) + ",qmp=/tmp/qmp.sock"
 
 try:
     vmm = memprocfs.Vmm(['-device', device])
-except Exception as e:
-    print(f"Error: {e}")
+except Exception as vmmerror:
+    print("Vmm failed to initialise.")
+    print(f"Error: {vmmerror}")
     exit()
